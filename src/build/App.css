@@ -6,6 +6,10 @@ body {
 .falooda-style {
   display: block; }
 
+.LoadingContainer {
+  text-align: center;
+  margin-top: 200px; }
+
 .App {
   text-align: center; }
 
@@ -41,3 +45,11 @@ body {
 
 body {
   background: #fff10e; }
+
+.App-container {
+  text-align: center;
+  margin: 110px 0; }
+  .App-container a {
+    display: block;
+    padding: 10px 0;
+    transform: rotate(0 deg); }

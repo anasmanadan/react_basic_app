@@ -42,3 +42,12 @@
 body {
   background: #fff10e;
 }
+.App-container {
+  text-align: center;
+  margin: 110px 0;
+  a {
+    display: block;
+    padding: 10px 0;
+    transform: rotate(0 deg);
+  }
+}

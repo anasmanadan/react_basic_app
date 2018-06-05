@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import { connect } from 'react-redux';
-import { simpleAction, setValue, fetchUser } from '../../actions/index'
+import { simpleAction, setValue, fetchUser } from '../../actions/index';
+import { Route } from 'react-router';
 
 import Loading from '../../components/Loading/Loading';
 
@@ -43,7 +44,6 @@ class Home extends Component {
                 <button onClick={this.changeName}>Click</button>
                 <button onClick={this.setShowPopup}>Set popup bool</button>
                 <button onClick={this.fetchUser}>Fetch users</button>
-
                 <p>{this.props.reducer1.data.length}</p>
                 <div className="userContainer left">
                 {
@@ -55,6 +55,9 @@ class Home extends Component {
                         )
                     })
                 }
+                </div>
+                <div className="home-child">
+                    <Route path={`${this.props.match.url}/page1`} render={()=><Loading text="page 1"/>} />
                 </div>
             </div>;
     }
