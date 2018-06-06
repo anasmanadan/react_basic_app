@@ -23,10 +23,16 @@ const simpleReducers = (state = {
 				...state,
 				results : action.payload
 			}
+		case 'FETCH_USERS':
+			return {
+				...state,
+				isLoading : true
+			}
 		case 'FETCH_USERS_SUCCESS':
 			return {
 				...state,
-				data : action.payload
+				data : action.payload,
+				isLoading : false
 			}
 		default:
 			return state

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import { connect } from 'react-redux';
 import { simpleAction, setValue, fetchUser } from '../../actions/index';
-import { Route } from 'react-router';
+import { Switch, Route, Link } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Loading from '../../components/Loading/Loading';
 
@@ -45,6 +46,8 @@ class Home extends Component {
                 <button onClick={this.setShowPopup}>Set popup bool</button>
                 <button onClick={this.fetchUser}>Fetch users</button>
                 <p>{this.props.reducer1.data.length}</p>
+                <Link to={`${this.props.match.url}/anas`}>firstname</Link>
+                <Link to={`${this.props.match.url}/manadan`}>lastname</Link>
                 <div className="userContainer left">
                 {
                     this.props.reducer1.data.map( user => {
@@ -57,7 +60,14 @@ class Home extends Component {
                 }
                 </div>
                 <div className="home-child">
-                    <Route path={`${this.props.match.url}/page1`} render={()=><Loading text="page 1"/>} />
+                    <TransitionGroup>
+                        <CSSTransition key={this.props.location.key} classNames="fade" timeout={300}>
+                            <Switch location={this.props.location}>
+                                <Route path={`${this.props.match.url}/anas`} render={()=><Loading text="Anas"/>} />
+                                <Route path={`${this.props.match.url}/manadan`} render={()=><Loading text="Manadan"/>} />
+                            </Switch>
+                        </CSSTransition>
+                    </TransitionGroup>            
                 </div>
             </div>;
     }
